@@ -1,9 +1,18 @@
 name: terminal_decorate
 description: >
-  Terminal colorization and text style decoration
-  based on the escape code defined in ANSI X3.64, ECMA-48, or ISO 6429.
-version: 0.0.0
+  Terminal colorization (colorful command line) and text style decoration.
+version: 0.1.0
 repository: https://github.com/aprosail/terminal-decorate
+topics:
+  - cli
+  - cli-color
+  - color
+  - command-line
+  - command-line-color
+  - font-decoration
+  - terminal
+  - terminal-colorization
+  - terminal-decoration
 
 environment: {sdk: ^3.3.4}
 
