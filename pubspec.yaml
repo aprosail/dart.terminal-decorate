@@ -1,7 +1,7 @@
 name: terminal_decorate
 description: >
   Terminal colorization (colorful command line) and text style decoration.
-version: 0.0.0
+version: 0.1.0
 repository: https://github.com/aprosail/terminal-decorate
 topics:
   - cli
