@@ -6,20 +6,24 @@ void main() {
 
 final fontStyleDecorations = [
   '\nfont style decorations:',
-  '(${Escape.bold.code}:${Escape.cancelBoldOrFaint}) ${'bold'.bold} style',
-  '(${Escape.faint.code}:${Escape.cancelBoldOrFaint}) ${'faint'.faint} style',
-  '(${Escape.italic.code}:${Escape.cancelItalic}) ${'italic'.italic} style',
-  '(${Escape.underline.code}:${Escape.cancelUnderline}) '
+  '(${Escape.bold.code}:${Escape.cancelBoldOrFaint.code}) ${'bold'.bold} style',
+  '(${Escape.faint.code}:${Escape.cancelBoldOrFaint.code}) ${'faint'.faint} style',
+  '(${Escape.italic.code}:${Escape.cancelItalic.code}) ${'italic'.italic} style',
+  '(${Escape.underline.code}:${Escape.cancelUnderline.code}) '
       '${'underline'.underline} style',
-  '(${Escape.blink.code}:${Escape.cancelBlink}) '
+  '(${Escape.blink.code}:${Escape.cancelBlink.code}) '
       '${'blink'.blink} style '
       '(usually unsupported)',
-  '(${Escape.rapidBlink.code}:${Escape.cancelBlink}) '
+  '(${Escape.rapidBlink.code}:${Escape.cancelBlink.code}) '
       '${'rapid blink'.rapidBlink} style '
       '(usually unsupported)',
-  '(${Escape.negative.code}:${Escape.cancelNegative}) '
+  '(${Escape.negative.code}:${Escape.cancelNegative.code}) '
       '${'negative'.negative} style',
-  '(${Escape.conceal.code}:${Escape.cancelConceal}) ${'conceal'.conceal} style',
-  '(${Escape.crossLine.code}:${Escape.cancelCrossLine}) '
+  '(${Escape.conceal.code}:${Escape.cancelConceal.code}) '
+      '${'conceal'.conceal} style',
+  '(${Escape.crossLine.code}:${Escape.cancelCrossLine.code}) '
       '${'cross line'.crossLine} style',
+  '(${Escape.doubleUnderline.code}:${Escape.cancelUnderline.code}) '
+      '${'double underline'.doubleUnderline} style '
+      '(usually unsupported)',
 ];
