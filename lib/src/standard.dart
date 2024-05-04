@@ -10,6 +10,7 @@ enum Escape {
   negative(7),
   conceal(8),
   crossLine(9),
+  doubleUnderline(21),
 
   // Cancel font style decorations.
   cancelBoldOrFaint(22),
@@ -42,6 +43,8 @@ extension TerminalDecorationBasic on String {
   String get negative => '${Escape.negative}$this${Escape.cancelNegative}';
   String get conceal => '${Escape.conceal}$this${Escape.cancelConceal}';
   String get crossLine => '${Escape.crossLine}$this${Escape.cancelCrossLine}';
+  String get doubleUnderline =>
+      '${Escape.doubleUnderline}$this${Escape.cancelUnderline}';
 
   // Syntax sugars.
   String get dim => faint;
