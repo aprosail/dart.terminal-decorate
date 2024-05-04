@@ -1,18 +1,32 @@
 enum Escape {
-  // Font style decorations.
+  // || ==================================================================== ||
+  // ||                        Font style decorations                        ||
+  // || ==================================================================== ||
   cancelAll(0),
   bold(1),
+
+  /// Also called "dim".
   faint(2),
   italic(3),
   underline(4),
+
+  /// Usually unsupported.
   blink(5),
+
+  /// Usually unsupported.
   rapidBlink(6),
   negative(7),
+
+  /// Also called "hide".
   conceal(8),
   crossLine(9),
+
+  /// Usually unsupported.
   doubleUnderline(21),
 
-  // Cancel font style decorations.
+  // || ==================================================================== ||
+  // ||                    Cancel font style decorations                     ||
+  // || ==================================================================== ||
   cancelBoldOrFaint(22),
   cancelItalic(23),
   cancelUnderline(24),
