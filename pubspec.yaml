@@ -1,14 +1,11 @@
 name: terminal_decorate
-description: A starting point for Dart libraries or applications.
+description: >
+  Terminal colorization and text style decoration
+  based on the escape code defined in ANSI X3.64, ECMA-48, or ISO 6429.
 version: 1.0.0
-# repository: https://github.com/my_org/my_repo
+repository: https://github.com/aprosail/terminal-decorate
 
-environment:
-  sdk: ^3.3.4
-
-# Add regular dependencies here.
-dependencies:
-  # path: ^1.8.0
+environment: {sdk: ^3.3.4}
 
 dev_dependencies:
   lints: ^3.0.0
