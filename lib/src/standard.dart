@@ -19,6 +19,8 @@ enum Escape {
 
   /// Also called "hide".
   conceal(8),
+
+  /// Usually unsupported.
   crossLine(9),
 
   /// Usually unsupported.
