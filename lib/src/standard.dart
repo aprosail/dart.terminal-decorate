@@ -44,7 +44,7 @@ enum Escape {
   customizeFg(38),
   cancelFg(39),
 
-  // Bg decoration.
+  // Background decoration.
   bgBlack(40),
   bgRed(41),
   bgGreen(42),
@@ -54,7 +54,27 @@ enum Escape {
   bgCyan(46),
   bgWhite(47),
   customizeBg(48),
-  cancelBg(49);
+  cancelBg(49),
+
+  // Highlight foreground decoration.
+  hiBlack(90),
+  hiRed(91),
+  hiGreen(92),
+  hiYellow(93),
+  hiBlue(94),
+  hiMagenta(95),
+  hiCyan(96),
+  hiWhite(97),
+
+  // Highlight background decoration.
+  hiBgBlack(100),
+  hiBgRed(101),
+  hiBgGreen(102),
+  hiBgYellow(103),
+  hiBgBlue(104),
+  hiBgMagenta(105),
+  hiBgCyan(106),
+  hiBgWhite(107);
 
   const Escape(this.code)
       : assert(code >= 0 && code <= 0xff, 'invalid code: $code (0~255)');
