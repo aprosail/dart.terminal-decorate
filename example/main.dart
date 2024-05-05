@@ -1,5 +1,7 @@
-import 'standard_example.dart';
+import 'color_example.dart';
+import 'font_example.dart';
 
 void main() {
-  standardExample();
+  fontExample();
+  colorExample();
 }
