@@ -1,5 +1,7 @@
 import 'package:terminal_decorate/terminal_decorate.dart';
 
+void main() => fontExample();
+
 void fontExample() {
   for (final line in basicFontDecorations) print(line);
 }
@@ -45,7 +47,7 @@ final basicFontDecorations = [
   singleFontLine(
     prefix: Escape.conceal,
     suffix: Escape.cancelConceal,
-    content: 'conceal'.conceal,
+    content: 'conceal/hide'.conceal,
     comment: 'conceal/hide',
   ),
   singleFontLine(

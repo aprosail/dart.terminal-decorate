@@ -1,5 +1,7 @@
 import 'package:terminal_decorate/terminal_decorate.dart';
 
+void main() => colorExample();
+
 void colorExample() {
   for (final line in singleForegroundLines) print(line);
   for (final line in singleBackgroundLines) print(line);
