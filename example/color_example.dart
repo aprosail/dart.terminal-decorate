@@ -11,7 +11,7 @@ final singleForegroundLines = [
   singleForegroundLine(
     code: Escape.foregroundBlack,
     content: 'black'.black,
-    comment: 'black, sometimes deep gray',
+    comment: 'black, sometimes dark gray',
   ),
   singleForegroundLine(code: Escape.foregroundRed, content: 'red'.red),
   singleForegroundLine(code: Escape.foregroundYellow, content: 'yellow'.yellow),
