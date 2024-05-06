@@ -197,7 +197,7 @@ extension TerminalBackgroundDecoration on String {
   String _backgroundColor(Escape code) {
     assert(
       Escape.backgroundColors.contains(code),
-      '${code.code} is not a foreground code',
+      '${code.code} is not a background code',
     );
 
     final index = lastIndexOf(Escape.cancelBackground.toString());
