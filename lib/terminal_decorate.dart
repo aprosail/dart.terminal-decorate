@@ -123,18 +123,24 @@ enum Escape {
   };
 }
 
+extension WrapTerminalDecorations on String {
+  String wrapEscape(Escape prefix, Escape suffix) => '$prefix$this$suffix';
+}
+
 extension TerminalFontStyleDecorations on String {
-  String get bold => '${Escape.bold}$this${Escape.cancelBoldOrFaint}';
-  String get faint => '${Escape.faint}$this${Escape.cancelBoldOrFaint}';
-  String get italic => '${Escape.italic}$this${Escape.cancelItalic}';
-  String get underline => '${Escape.underline}$this${Escape.cancelUnderline}';
-  String get blink => '${Escape.blink}$this${Escape.cancelBlink}';
-  String get rapidBlink => '${Escape.rapidBlink}$this${Escape.cancelBlink}';
-  String get negative => '${Escape.negative}$this${Escape.cancelNegative}';
-  String get conceal => '${Escape.conceal}$this${Escape.cancelConceal}';
-  String get crossLine => '${Escape.crossLine}$this${Escape.cancelCrossLine}';
-  String get doubleUnderline =>
-      '${Escape.doubleUnderline}$this${Escape.cancelUnderline}';
+  String get bold => wrapEscape(Escape.bold, Escape.cancelBoldOrFaint);
+  String get faint => wrapEscape(Escape.faint, Escape.cancelBoldOrFaint);
+  String get italic => wrapEscape(Escape.italic, Escape.cancelItalic);
+  String get underline => wrapEscape(Escape.underline, Escape.cancelUnderline);
+  String get blink => wrapEscape(Escape.blink, Escape.cancelBlink);
+  String get rapidBlink => wrapEscape(Escape.rapidBlink, Escape.cancelBlink);
+  String get negative => wrapEscape(Escape.negative, Escape.cancelNegative);
+  String get conceal => wrapEscape(Escape.conceal, Escape.cancelConceal);
+  String get crossLine => wrapEscape(Escape.crossLine, Escape.cancelCrossLine);
+  String get doubleUnderline => wrapEscape(
+        Escape.doubleUnderline,
+        Escape.cancelUnderline,
+      );
 
   String get dim => faint;
   String get hide => conceal;
