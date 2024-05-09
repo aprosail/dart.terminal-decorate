@@ -16,6 +16,9 @@ topics:
 
 environment: {sdk: ^3.3.4}
 
+dependencies:
+  syntax_sugar: ^0.2.4
+
 dev_dependencies:
   lints: ^3.0.0
   test: ^1.24.0

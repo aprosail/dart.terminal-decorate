@@ -1,44 +1,32 @@
 import 'package:terminal_decorate/terminal_decorate.dart';
 import 'package:test/test.dart';
 
-void main() => nestTest();
+void main() {
+  test('nest conflicts', () {
+    final faint = 'faint'.wrapEscape(Escape.faint, Escape.cancelBoldOrFaint);
+    expect(
+      'bold $faint bold'.resolveNestEscape(
+        Escape.bold,
+        Escape.cancelBoldOrFaint,
+        conflicts: {Escape.faint},
+      ),
+      '${Escape.bold}bold '
+      '${Escape.faint}faint${Escape.cancelBoldOrFaint}'
+      '${Escape.bold} bold${Escape.cancelBoldOrFaint}',
+    );
+  });
 
-void nestTest() {
-  group('nest color', () {
-    test('nest color foreground', () {
-      final red = 'red'.red;
-      final yellow = 'yellow $red yellow'.yellow;
-      final blue = 'blue $yellow blue'.blue;
-      final normal = 'normal $blue normal';
-
-      expect(
-        normal,
-        'normal '
-        '${Escape.foregroundBlue}blue '
-        '${Escape.foregroundYellow}yellow '
-        '${Escape.foregroundRed}red${Escape.cancelForeground}'
-        '${Escape.foregroundYellow} yellow${Escape.cancelForeground}'
-        '${Escape.foregroundBlue} blue${Escape.cancelForeground}'
-        ' normal',
-      );
-    });
-
-    test('nest color background', () {
-      final red = 'red'.bgRed;
-      final yellow = 'yellow $red yellow'.bgYellow;
-      final blue = 'blue $yellow blue'.bgBlue;
-      final normal = 'normal $blue normal';
-
-      expect(
-        normal,
-        'normal '
-        '${Escape.backgroundBlue}blue '
-        '${Escape.backgroundYellow}yellow '
-        '${Escape.backgroundRed}red${Escape.cancelBackground}'
-        '${Escape.backgroundYellow} yellow${Escape.cancelBackground}'
-        '${Escape.backgroundBlue} blue${Escape.cancelBackground}'
-        ' normal',
-      );
-    });
+  test('nest overrides', () {
+    final red = 'red'.wrapEscape(Escape.foregroundRed, Escape.cancelForeground);
+    expect(
+      'yellow $red yellow'.resolveNestEscape(
+        Escape.foregroundYellow,
+        Escape.cancelForeground,
+        overrides: {Escape.foregroundRed},
+      ),
+      '${Escape.foregroundYellow}yellow '
+      '${Escape.foregroundRed}red'
+      '${Escape.foregroundYellow} yellow${Escape.cancelForeground}',
+    );
   });
 }

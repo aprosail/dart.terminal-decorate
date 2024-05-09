@@ -81,6 +81,9 @@ enum Escape {
 
   final int code;
 
+  /// Length of the escape sequence string.
+  int get length => toString().length;
+
   @override
   String toString() => '\x1b[${code}m';
 
