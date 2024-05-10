@@ -2,6 +2,8 @@
 
 - Support foreground and background decorations.
 - Support combined complex foreground and background decorations.
+- Support combined complex font style decorations.
+- Tests to validate nested decorations.
 
 ## 0.0.0
 
