@@ -4,6 +4,9 @@ void main() => fontExample();
 
 void fontExample() {
   for (final line in basicFontDecorations) print(line);
+  print(mixBoldAndFaint());
+  print(mixBlinks());
+  print(mixUnderlines());
 }
 
 final basicFontDecorations = [
@@ -71,4 +74,22 @@ String singleFontLine({
 }) {
   return '(${prefix.code}:${suffix.code}) $content style '
       '${comment != null ? '($comment)' : ''}';
+}
+
+String mixBoldAndFaint() {
+  final bold = 'bold'.bold;
+  final faint = 'faint $bold faint'.faint;
+  return 'normal $faint normal';
+}
+
+String mixBlinks() {
+  final rapidBlink = 'rapid blink'.blink;
+  final blink = 'blink $rapidBlink blink'.blink;
+  return 'normal $blink normal (usually unsupported)';
+}
+
+String mixUnderlines() {
+  final doubleUnderline = 'double underline'.doubleUnderline;
+  final underline = 'underline $doubleUnderline underline'.underline;
+  return 'normal $underline normal (usually unsupported)';
 }

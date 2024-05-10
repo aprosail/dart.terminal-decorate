@@ -1,24 +1,4 @@
 import 'escape.dart';
-import 'wrap.dart';
-
-extension TerminalFontStyleDecorations on String {
-  String get bold => wrapEscape(Escape.bold, Escape.cancelBoldOrFaint);
-  String get faint => wrapEscape(Escape.faint, Escape.cancelBoldOrFaint);
-  String get italic => wrapEscape(Escape.italic, Escape.cancelItalic);
-  String get underline => wrapEscape(Escape.underline, Escape.cancelUnderline);
-  String get blink => wrapEscape(Escape.blink, Escape.cancelBlink);
-  String get rapidBlink => wrapEscape(Escape.rapidBlink, Escape.cancelBlink);
-  String get negative => wrapEscape(Escape.negative, Escape.cancelNegative);
-  String get conceal => wrapEscape(Escape.conceal, Escape.cancelConceal);
-  String get crossLine => wrapEscape(Escape.crossLine, Escape.cancelCrossLine);
-  String get doubleUnderline => wrapEscape(
-        Escape.doubleUnderline,
-        Escape.cancelUnderline,
-      );
-
-  String get dim => faint;
-  String get hide => conceal;
-}
 
 extension TerminalForegroundDecorations on String {
   String _foregroundColor(Escape code) {
