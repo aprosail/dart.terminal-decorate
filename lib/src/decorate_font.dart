@@ -50,7 +50,7 @@ extension TerminalFontStyleDecorations on String {
   String get crossLine => wrapEscape(Escape.crossLine, Escape.cancelCrossLine);
 }
 
-extension TerminalFontStyleDecorationAlias on String {
+extension TerminalFontStyleDecorationAliases on String {
   String get dim => faint;
   String get hide => conceal;
 }

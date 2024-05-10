@@ -86,42 +86,4 @@ enum Escape {
 
   @override
   String toString() => '\x1b[${code}m';
-
-  static const foregroundColors = {
-    foregroundBlack,
-    foregroundRed,
-    foregroundGreen,
-    foregroundYellow,
-    foregroundBlue,
-    foregroundMagenta,
-    foregroundCyan,
-    foregroundHiBlack,
-    foregroundHiRed,
-    foregroundHiGreen,
-    foregroundHiYellow,
-    foregroundHiBlue,
-    foregroundHiMagenta,
-    foregroundHiCyan,
-    foregroundHiWhite,
-    customForeground,
-  };
-
-  static const backgroundColors = {
-    backgroundBlack,
-    backgroundRed,
-    backgroundGreen,
-    backgroundYellow,
-    backgroundBlue,
-    backgroundMagenta,
-    backgroundCyan,
-    backgroundHiBlack,
-    backgroundHiRed,
-    backgroundHiGreen,
-    backgroundHiYellow,
-    backgroundHiBlue,
-    backgroundHiMagenta,
-    backgroundHiCyan,
-    backgroundHiWhite,
-    customBackground,
-  };
 }
