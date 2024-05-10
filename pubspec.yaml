@@ -5,12 +5,8 @@ version: 0.1.0
 repository: https://github.com/aprosail/terminal-decorate
 topics:
   - cli
-  - cli-color
   - color
-  - command-line
   - command-line-color
-  - font-decoration
-  - terminal
   - terminal-colorization
   - terminal-decoration
 
