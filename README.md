@@ -8,7 +8,7 @@ Thanks to Dart's extension mechanism, you can use it like this:
 
 ```dart
 // Font style decoration.
-print('normal ${'italic ${'bold'.bold} italic'} normal');
+print('normal ${'italic ${'bold'.bold} italic'.italic} normal');
 
 // Font color decoration.
 print('normal ${'red ${'yellow'.yellow} red'.red} normal');
