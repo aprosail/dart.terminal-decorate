@@ -1,3 +1,5 @@
+// ignore_for_file: curly_braces_in_flow_control_structures
+
 import 'package:terminal_decorate/terminal_decorate.dart';
 
 void main() => fontExample();
