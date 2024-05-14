@@ -1,3 +1,10 @@
+## 0.2.0
+
+- ! This version is incompatible with previous versions.
+- Cancel escape enum and use static constructor class
+  to improve readability and performance.
+- Fix potential conflict with custom color parameters.
+
 ## 0.1.0
 
 - Support foreground and background decorations.
