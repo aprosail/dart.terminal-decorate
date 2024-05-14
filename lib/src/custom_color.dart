@@ -5,7 +5,7 @@ extension CustomTypeCode on int {
   static const rgb = 2;
 }
 
-extension CustomizeColor on String {
+extension CustomColor on String {
   String foregroundCode(int code) => resolveNestEscape(
         Escape(ForegroundCode.custom, parameters: [CustomTypeCode.code, code]),
         Escape(CancelCode.foreground),
