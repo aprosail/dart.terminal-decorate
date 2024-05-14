@@ -13,68 +13,68 @@ void fontExample() {
 
 final basicFontDecorations = [
   singleFontLine(
-    prefix: Escape.bold,
-    suffix: Escape.cancelBoldOrFaint,
+    prefix: FontStyleCode.bold,
+    suffix: CancelCode.boldOrFaint,
     content: 'bold'.bold,
   ),
   singleFontLine(
-    prefix: Escape.faint,
-    suffix: Escape.cancelBoldOrFaint,
+    prefix: FontStyleCode.faint,
+    suffix: CancelCode.boldOrFaint,
     content: 'faint/dim'.faint,
   ),
   singleFontLine(
-    prefix: Escape.italic,
-    suffix: Escape.cancelItalic,
+    prefix: FontStyleCode.italic,
+    suffix: CancelCode.italic,
     content: 'italic'.italic,
   ),
   singleFontLine(
-    prefix: Escape.underline,
-    suffix: Escape.cancelUnderline,
+    prefix: FontStyleCode.underline,
+    suffix: CancelCode.underline,
     content: 'underline'.underline,
   ),
   singleFontLine(
-    prefix: Escape.blink,
-    suffix: Escape.cancelBlink,
+    prefix: FontStyleCode.blink,
+    suffix: CancelCode.blink,
     content: 'blink'.blink,
     comment: 'usually unsupported',
   ),
   singleFontLine(
-    prefix: Escape.rapidBlink,
-    suffix: Escape.cancelBlink,
-    content: 'rapid blink'.rapidBlink,
+    prefix: FontStyleCode.blinkRapid,
+    suffix: CancelCode.blink,
+    content: 'rapid blink'.blinkRapid,
     comment: 'usually unsupported',
   ),
   singleFontLine(
-    prefix: Escape.negative,
-    suffix: Escape.cancelNegative,
+    prefix: FontStyleCode.negative,
+    suffix: CancelCode.negative,
     content: 'negative'.negative,
   ),
   singleFontLine(
-    prefix: Escape.conceal,
-    suffix: Escape.cancelConceal,
+    prefix: FontStyleCode.conceal,
+    suffix: CancelCode.conceal,
     content: 'conceal/hide'.conceal,
     comment: 'conceal/hide',
   ),
   singleFontLine(
-    prefix: Escape.crossLine,
-    suffix: Escape.cancelCrossLine,
-    content: 'cross line'.crossLine,
+    prefix: FontStyleCode.strikethrough,
+    suffix: CancelCode.strikethrough,
+    content: 'strikethrough/delete/line-through'.strikethrough,
   ),
   singleFontLine(
-    prefix: Escape.doubleUnderline,
-    suffix: Escape.cancelUnderline,
+    prefix: FontStyleCode.doubleUnderline,
+    suffix: CancelCode.underline,
     content: 'double underline'.doubleUnderline,
-    comment: 'usually unsupported',
+    comment: 'usually unsupported or thick line',
   ),
 ];
 
 String singleFontLine({
-  required Escape prefix,
-  required Escape suffix,
+  required int prefix,
+  required int suffix,
   required String content,
   String? comment,
 }) {
-  return '(${prefix.code}:${suffix.code}) $content style '
+  return '($prefix:$suffix) $content style '
       '${comment != null ? '($comment)' : ''}';
 }
 

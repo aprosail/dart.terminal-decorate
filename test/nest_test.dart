@@ -3,30 +3,20 @@ import 'package:test/test.dart';
 
 void main() {
   test('nest conflicts', () {
-    final faint = 'faint'.wrapEscape(Escape.faint, Escape.cancelBoldOrFaint);
     expect(
-      'bold $faint bold'.resolveNestEscape(
-        Escape.bold,
-        Escape.cancelBoldOrFaint,
-        conflicts: {Escape.faint},
-      ),
-      '${Escape.bold}bold '
-      '${Escape.faint}faint${Escape.cancelBoldOrFaint}'
-      '${Escape.bold} bold${Escape.cancelBoldOrFaint}',
+      'bold ${'faint'.faint} bold'.bold,
+      '${Escape(FontStyleCode.bold)}bold '
+      '${Escape(FontStyleCode.faint)}faint${Escape(CancelCode.boldOrFaint)}'
+      '${Escape(FontStyleCode.bold)} bold${Escape(CancelCode.boldOrFaint)}',
     );
   });
 
   test('nest overrides', () {
-    final red = 'red'.wrapEscape(Escape.foregroundRed, Escape.cancelForeground);
     expect(
-      'yellow $red yellow'.resolveNestEscape(
-        Escape.foregroundYellow,
-        Escape.cancelForeground,
-        overrides: {Escape.foregroundRed},
-      ),
-      '${Escape.foregroundYellow}yellow '
-      '${Escape.foregroundRed}red'
-      '${Escape.foregroundYellow} yellow${Escape.cancelForeground}',
+      'yellow ${'red'.red} yellow'.yellow,
+      '${Escape(ForegroundCode.yellow)}yellow '
+      '${Escape(ForegroundCode.red)}red'
+      '${Escape(ForegroundCode.yellow)} yellow${Escape(CancelCode.foreground)}',
     );
   });
 }

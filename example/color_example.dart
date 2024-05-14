@@ -13,52 +13,52 @@ void colorExample() {
 
 final singleForegroundLines = [
   singleForegroundLine(
-    code: Escape.foregroundBlack,
+    code: ForegroundCode.black,
     content: 'black'.black,
     comment: 'black, sometimes dark gray',
   ),
-  singleForegroundLine(code: Escape.foregroundRed, content: 'red'.red),
-  singleForegroundLine(code: Escape.foregroundYellow, content: 'yellow'.yellow),
-  singleForegroundLine(code: Escape.foregroundGreen, content: 'green'.green),
-  singleForegroundLine(code: Escape.foregroundCyan, content: 'cyan'.cyan),
-  singleForegroundLine(code: Escape.foregroundBlue, content: 'blue'.blue),
+  singleForegroundLine(code: ForegroundCode.red, content: 'red'.red),
+  singleForegroundLine(code: ForegroundCode.yellow, content: 'yellow'.yellow),
+  singleForegroundLine(code: ForegroundCode.green, content: 'green'.green),
+  singleForegroundLine(code: ForegroundCode.cyan, content: 'cyan'.cyan),
+  singleForegroundLine(code: ForegroundCode.blue, content: 'blue'.blue),
   singleForegroundLine(
-    code: Escape.foregroundMagenta,
+    code: ForegroundCode.magenta,
     content: 'magenta'.magenta,
   ),
   singleForegroundLine(
-    code: Escape.foregroundWhite,
+    code: ForegroundCode.white,
     content: 'white'.white,
     comment: 'white, sometimes light gray',
   ),
   singleForegroundLine(
-    code: Escape.foregroundHiBlack,
+    code: HiForegroundCode.black,
     content: 'hi black'.hiBlack,
     comment: 'hi black',
   ),
-  singleForegroundLine(code: Escape.foregroundHiRed, content: 'hi red'.hiRed),
+  singleForegroundLine(code: HiForegroundCode.red, content: 'hi red'.hiRed),
   singleForegroundLine(
-    code: Escape.foregroundHiYellow,
+    code: HiForegroundCode.yellow,
     content: 'hi yellow'.hiYellow,
   ),
   singleForegroundLine(
-    code: Escape.foregroundHiGreen,
+    code: HiForegroundCode.green,
     content: 'hi green'.hiGreen,
   ),
   singleForegroundLine(
-    code: Escape.foregroundHiCyan,
+    code: HiForegroundCode.cyan,
     content: 'hi cyan'.hiCyan,
   ),
   singleForegroundLine(
-    code: Escape.foregroundHiBlue,
+    code: HiForegroundCode.blue,
     content: 'hi blue'.hiBlue,
   ),
   singleForegroundLine(
-    code: Escape.foregroundHiMagenta,
+    code: HiForegroundCode.magenta,
     content: 'hi magenta'.hiMagenta,
   ),
   singleForegroundLine(
-    code: Escape.foregroundHiWhite,
+    code: HiForegroundCode.white,
     content: 'hi white'.hiWhite,
     comment: 'hi white',
   ),
@@ -66,79 +66,79 @@ final singleForegroundLines = [
 
 final singleBackgroundLines = [
   singleBackgroundLine(
-    code: Escape.backgroundBlack,
+    code: BackgroundCode.black,
     content: 'black'.bgBlack,
     comment: 'black',
   ),
-  singleBackgroundLine(code: Escape.backgroundRed, content: 'red'.bgRed),
+  singleBackgroundLine(code: BackgroundCode.red, content: 'red'.bgRed),
   singleBackgroundLine(
-    code: Escape.backgroundYellow,
+    code: BackgroundCode.yellow,
     content: 'yellow'.bgYellow,
   ),
-  singleBackgroundLine(code: Escape.backgroundGreen, content: 'green'.bgGreen),
-  singleBackgroundLine(code: Escape.backgroundCyan, content: 'cyan'.bgCyan),
-  singleBackgroundLine(code: Escape.backgroundBlue, content: 'blue'.bgBlue),
+  singleBackgroundLine(code: BackgroundCode.green, content: 'green'.bgGreen),
+  singleBackgroundLine(code: BackgroundCode.cyan, content: 'cyan'.bgCyan),
+  singleBackgroundLine(code: BackgroundCode.blue, content: 'blue'.bgBlue),
   singleBackgroundLine(
-    code: Escape.backgroundMagenta,
+    code: BackgroundCode.magenta,
     content: 'magenta'.bgMagenta,
   ),
   singleBackgroundLine(
-    code: Escape.backgroundWhite,
+    code: BackgroundCode.white,
     content: 'white'.bgWhite,
     comment: 'white',
   ),
   singleBackgroundLine(
-    code: Escape.backgroundHiBlack,
+    code: HiBackgroundCode.black,
     content: 'hi black'.bgHiBlack,
     comment: 'hi black',
   ),
-  singleBackgroundLine(code: Escape.backgroundHiRed, content: 'hi red'.bgHiRed),
+  singleBackgroundLine(code: HiBackgroundCode.red, content: 'hi red'.bgHiRed),
   singleBackgroundLine(
-    code: Escape.backgroundHiYellow,
+    code: HiBackgroundCode.yellow,
     content: 'hi yellow'.bgHiYellow,
   ),
   singleBackgroundLine(
-    code: Escape.backgroundHiGreen,
+    code: HiBackgroundCode.green,
     content: 'hi green'.bgHiGreen,
   ),
   singleBackgroundLine(
-    code: Escape.backgroundHiCyan,
+    code: HiBackgroundCode.cyan,
     content: 'hi cyan'.bgHiCyan,
   ),
   singleBackgroundLine(
-    code: Escape.backgroundHiBlue,
+    code: HiBackgroundCode.blue,
     content: 'hi blue'.bgHiBlue,
   ),
   singleBackgroundLine(
-    code: Escape.backgroundHiMagenta,
+    code: HiBackgroundCode.magenta,
     content: 'hi magenta'.bgHiMagenta,
   ),
   singleBackgroundLine(
-    code: Escape.backgroundHiWhite,
+    code: HiBackgroundCode.white,
     content: 'hi white'.bgHiWhite,
     comment: 'hi white',
   ),
 ];
 
 String singleForegroundLine({
-  required Escape code,
+  required int code,
   required String content,
   String? comment,
 }) {
   return [
-    '(${code.code}:${Escape.cancelForeground.code})',
+    '($code:${CancelCode.foreground})',
     '$content color',
     if (comment != null) '($comment)'
   ].join(' ');
 }
 
 String singleBackgroundLine({
-  required Escape code,
+  required int code,
   required String content,
   String? comment,
 }) {
   return [
-    '(${code.code}:${Escape.cancelBackground.code})',
+    '($code:${CancelCode.background})',
     '$content background',
     if (comment != null) '($comment)'
   ].join(' ');

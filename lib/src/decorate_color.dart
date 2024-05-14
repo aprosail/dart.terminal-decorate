@@ -1,93 +1,63 @@
-import 'package:terminal_decorate/terminal_decorate.dart';
+import 'escape.dart';
 
 extension TerminalForegroundDecorations on String {
-  String _foregroundColor(Escape code) => resolveNestEscape(
-        code,
-        Escape.cancelForeground,
-        overrides: {
-          Escape.foregroundBlack,
-          Escape.foregroundRed,
-          Escape.foregroundYellow,
-          Escape.foregroundGreen,
-          Escape.foregroundCyan,
-          Escape.foregroundBlue,
-          Escape.foregroundMagenta,
-          Escape.foregroundWhite,
-          Escape.foregroundHiBlack,
-          Escape.foregroundHiRed,
-          Escape.foregroundHiYellow,
-          Escape.foregroundHiGreen,
-          Escape.foregroundHiCyan,
-          Escape.foregroundHiBlue,
-          Escape.foregroundHiMagenta,
-          Escape.foregroundHiWhite,
-        }..remove(code),
-      );
+  String _foregroundColor(int code) {
+    assert(ForegroundCode.all.contains(code), 'not a foreground code: $code');
+    return resolveNestEscape(
+      Escape(code),
+      const Escape(CancelCode.foreground),
+      overrides: ForegroundCode.allAndCustom.toSet()..remove(code),
+    );
+  }
 
-  String get foregroundBlack => _foregroundColor(Escape.foregroundBlack);
-  String get foregroundWhite => _foregroundColor(Escape.foregroundWhite);
-  String get foregroundRed => _foregroundColor(Escape.foregroundRed);
-  String get foregroundYellow => _foregroundColor(Escape.foregroundYellow);
-  String get foregroundGreen => _foregroundColor(Escape.foregroundGreen);
-  String get foregroundCyan => _foregroundColor(Escape.foregroundCyan);
-  String get foregroundBlue => _foregroundColor(Escape.foregroundBlue);
-  String get foregroundMagenta => _foregroundColor(Escape.foregroundMagenta);
+  String get foregroundBlack => _foregroundColor(ForegroundCode.black);
+  String get foregroundWhite => _foregroundColor(ForegroundCode.white);
+  String get foregroundRed => _foregroundColor(ForegroundCode.red);
+  String get foregroundYellow => _foregroundColor(ForegroundCode.yellow);
+  String get foregroundGreen => _foregroundColor(ForegroundCode.green);
+  String get foregroundCyan => _foregroundColor(ForegroundCode.cyan);
+  String get foregroundBlue => _foregroundColor(ForegroundCode.blue);
+  String get foregroundMagenta => _foregroundColor(ForegroundCode.magenta);
 
-  String get foregroundHiBlack => _foregroundColor(Escape.foregroundHiBlack);
-  String get foregroundHiWhite => _foregroundColor(Escape.foregroundHiWhite);
-  String get foregroundHiRed => _foregroundColor(Escape.foregroundHiRed);
-  String get foregroundHiYellow => _foregroundColor(Escape.foregroundHiYellow);
-  String get foregroundHiGreen => _foregroundColor(Escape.foregroundHiGreen);
-  String get foregroundHiBlue => _foregroundColor(Escape.foregroundHiBlue);
-  String get foregroundHiCyan => _foregroundColor(Escape.foregroundHiCyan);
+  String get foregroundHiBlack => _foregroundColor(HiForegroundCode.black);
+  String get foregroundHiWhite => _foregroundColor(HiForegroundCode.white);
+  String get foregroundHiRed => _foregroundColor(HiForegroundCode.red);
+  String get foregroundHiYellow => _foregroundColor(HiForegroundCode.yellow);
+  String get foregroundHiGreen => _foregroundColor(HiForegroundCode.green);
+  String get foregroundHiCyan => _foregroundColor(HiForegroundCode.cyan);
+  String get foregroundHiBlue => _foregroundColor(HiForegroundCode.blue);
   String get foregroundHiMagenta => _foregroundColor(
-        Escape.foregroundHiMagenta,
+        HiForegroundCode.magenta,
       );
 }
 
 extension TerminalBackgroundDecoration on String {
-  String _backgroundColor(Escape code) => resolveNestEscape(
-        code,
-        Escape.cancelBackground,
-        overrides: {
-          Escape.backgroundBlack,
-          Escape.backgroundRed,
-          Escape.backgroundGreen,
-          Escape.backgroundYellow,
-          Escape.backgroundBlue,
-          Escape.backgroundMagenta,
-          Escape.backgroundCyan,
-          Escape.backgroundWhite,
-          Escape.backgroundHiBlack,
-          Escape.backgroundHiRed,
-          Escape.backgroundHiGreen,
-          Escape.backgroundHiYellow,
-          Escape.backgroundHiBlue,
-          Escape.backgroundHiMagenta,
-          Escape.backgroundHiCyan,
-          Escape.backgroundHiWhite,
-        }..remove(code),
-      );
+  String _backgroundColor(int code) {
+    assert(BackgroundCode.all.contains(code), 'not a background code: $code');
+    return resolveNestEscape(
+      Escape(code),
+      const Escape(CancelCode.background),
+      overrides: BackgroundCode.allAndCustom.toSet()..remove(code),
+    );
+  }
 
-  String get backgroundBlack => _backgroundColor(Escape.backgroundBlack);
-  String get backgroundWhite => _backgroundColor(Escape.backgroundWhite);
-  String get backgroundRed => _backgroundColor(Escape.backgroundRed);
-  String get backgroundYellow => _backgroundColor(Escape.backgroundYellow);
-  String get backgroundGreen => _backgroundColor(Escape.backgroundGreen);
-  String get backgroundCyan => _backgroundColor(Escape.backgroundCyan);
-  String get backgroundBlue => _backgroundColor(Escape.backgroundBlue);
-  String get backgroundMagenta => _backgroundColor(Escape.backgroundMagenta);
+  String get backgroundBlack => _backgroundColor(BackgroundCode.black);
+  String get backgroundWhite => _backgroundColor(BackgroundCode.white);
+  String get backgroundRed => _backgroundColor(BackgroundCode.red);
+  String get backgroundYellow => _backgroundColor(BackgroundCode.yellow);
+  String get backgroundGreen => _backgroundColor(BackgroundCode.green);
+  String get backgroundCyan => _backgroundColor(BackgroundCode.cyan);
+  String get backgroundBlue => _backgroundColor(BackgroundCode.blue);
+  String get backgroundMagenta => _backgroundColor(BackgroundCode.magenta);
 
-  String get backgroundHiBlack => _backgroundColor(Escape.backgroundHiBlack);
-  String get backgroundHiWhite => _backgroundColor(Escape.backgroundHiWhite);
-  String get backgroundHiRed => _backgroundColor(Escape.backgroundHiRed);
-  String get backgroundHiYellow => _backgroundColor(Escape.backgroundHiYellow);
-  String get backgroundHiGreen => _backgroundColor(Escape.backgroundHiGreen);
-  String get backgroundHiBlue => _backgroundColor(Escape.backgroundHiBlue);
-  String get backgroundHiCyan => _backgroundColor(Escape.backgroundHiCyan);
-  String get backgroundHiMagenta => _backgroundColor(
-        Escape.backgroundHiMagenta,
-      );
+  String get backgroundHiBlack => _backgroundColor(HiBackgroundCode.black);
+  String get backgroundHiWhite => _backgroundColor(HiBackgroundCode.white);
+  String get backgroundHiRed => _backgroundColor(HiBackgroundCode.red);
+  String get backgroundHiYellow => _backgroundColor(HiBackgroundCode.yellow);
+  String get backgroundHiGreen => _backgroundColor(HiBackgroundCode.green);
+  String get backgroundHiCyan => _backgroundColor(HiBackgroundCode.cyan);
+  String get backgroundHiBlue => _backgroundColor(HiBackgroundCode.blue);
+  String get backgroundHiMagenta => _backgroundColor(HiBackgroundCode.magenta);
 }
 
 extension TerminalForegroundDecorationAliases on String {
