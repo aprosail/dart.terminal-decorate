@@ -1,3 +1,7 @@
+## 0.3.0
+
+- Customize terminal code, including using color code and RGB format.
+
 ## 0.2.0
 
 - ! This version is incompatible with previous versions.
